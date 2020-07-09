@@ -1,5 +1,6 @@
 package edu.pdx.cs410J.bail34;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public class Kata {
     System.exit(1);
   }
 
-  public static List<Integer> intToDigit(int n) {
-    List<Integer> digits = new ArrayList<>();
+  public static ArrayList<Integer> intToDigit(int n) {
+    ArrayList<Integer> digits = new ArrayList<>();
     while(n > 0) {
       digits.add(n % 10);
       n = n / 10;
@@ -38,13 +39,69 @@ public class Kata {
    * @return
    */
   public static String romanNumeralFor(int number) {
-    if(number == 1)
+//    if(number == 1)
+//    {
+//      return "I";
+//    }
+//    else
+//    {
+//      return "V";
+//    }
+    StringBuilder numeral = new StringBuilder();
+    ArrayList<Integer> list = intToDigit(number);
+
+    for(int i = list.size() - 1; i >= 0; i--)
     {
-      return "I";
-    }
-    else
-    {
-      return "V";
-    }
+      int current = list.get(i);
+
+      if(i == 3)
+      {
+        if(current <= 3)
+        {
+          for(int j = 0; j < current; j++)
+          {
+            numeral.append("M");
+          }
+        }
+      }
+      //the hundreds place
+      if(i == 2) {
+        if (current <= 3) {
+          for (int j = 0; j < current; j++) {
+            numeral.append("C");
+          }
+        } else if (current == 4) {
+          numeral.append("CD");
+        } else if (current >= 5 && current <= 8) {
+          numeral.append("D");
+          for (int j = 5; j < current; j++) {
+            numeral.append("C");
+          }
+        } else if (current == 9) {
+          numeral.append("CM");
+        }
+      }
+
+        if(i == 1) {
+          if (current <= 3) {
+            for (int j = 0; j < current; j++) {
+              numeral.append("X");
+            }
+          } else if (current == 4) {
+            numeral.append("XL");
+          } else if (current >= 5 && current <= 8) {
+            numeral.append("L");
+            for (int j = 5; j < current; j++) {
+              numeral.append("X");
+            }
+          } else if (current == 9) {
+            numeral.append("XC");
+          }
+        }
+      }
+
+
+
+    return numeral.toString();
   }
 }
