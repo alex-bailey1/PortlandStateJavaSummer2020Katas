@@ -19,7 +19,25 @@ public class PolishCalc {
 
         for (String val : list) {
             if (isOperator(val)) {
+                int operand1 = num_list.pop();
+                int operand2 = num_list.pop();
 
+                switch(val) {
+                    case "*":
+                        num_list.push(operand2 * operand1);
+                        break;
+                    case "/":
+                        num_list.push(operand2 / operand1);
+                        break;
+                    case "+":
+                        num_list.push(operand2 + operand1);
+                        break;
+                    case "-":
+                        num_list.push(operand2 - operand1);
+                        break;
+                    default:
+                        System.exit(1);
+                }
             } else {
               try {
                   Integer intVal = Integer.parseInt(val);
