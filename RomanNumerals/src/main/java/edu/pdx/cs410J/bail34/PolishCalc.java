@@ -48,9 +48,7 @@ public class PolishCalc {
               }
             }
         }
-
-
-        return result;
+        return num_list.pop();
     }
 
     public boolean isOperator(String val) {

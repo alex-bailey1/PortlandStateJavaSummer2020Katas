@@ -24,4 +24,40 @@ public class PolishCalcTest {
         assertThat(result, equalTo(2));
     }
 
+    @Test
+    public void canDiv()
+    {
+        PolishCalc calc = new PolishCalc();
+        ArrayList<String> list = new ArrayList<>();
+        list.add("10");
+        list.add("2");
+        list.add("/");
+        int result = calc.calculate(list);
+        assertThat(result, equalTo(5));
+    }
+
+    @Test
+    public void canSub()
+    {
+        PolishCalc calc = new PolishCalc();
+        ArrayList<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("1");
+        list.add("-");
+        int result = calc.calculate(list);
+        assertThat(result, equalTo(0));
+    }
+
+    @Test
+    public void canMult()
+    {
+        PolishCalc calc = new PolishCalc();
+        ArrayList<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("1");
+        list.add("*");
+        int result = calc.calculate(list);
+        assertThat(result, equalTo(1));
+    }
+
 }
