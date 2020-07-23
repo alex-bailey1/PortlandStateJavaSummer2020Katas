@@ -12,9 +12,35 @@ public class PolishCalc {
         int result = 0;
         Deque<Integer> num_list = new ArrayDeque<>();
 
-        
+
+        //        20 5 /        => 20/5 = 4
+        //        4 2 + 3 -     => (4+2)-3 = 3
+        //        3 5 8 * 7 + * => ((5*8)+7)*3 = 141
+
+        for (String val : list) {
+            if (isOperator(val)) {
+
+            } else {
+              try {
+                  Integer intVal = Integer.parseInt(val);
+                  num_list.push(intVal);
+              } catch (NumberFormatException ex) {
+                  System.err.print("Not a valid input");
+                  System.exit(1);
+              }
+            }
+        }
 
 
         return result;
+    }
+
+    public boolean isOperator(String val) {
+        ArrayList<String> operators = new ArrayList<>();
+        operators.add("*");
+        operators.add("/");
+        operators.add("+");
+        operators.add("-");
+        return operators.contains(val);
     }
 }
