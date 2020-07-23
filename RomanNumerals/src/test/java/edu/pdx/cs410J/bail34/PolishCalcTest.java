@@ -60,4 +60,19 @@ public class PolishCalcTest {
         assertThat(result, equalTo(1));
     }
 
+    @Test
+    public void testCase3()
+    {
+        PolishCalc calc = new PolishCalc();
+        ArrayList<String> list = new ArrayList<>();
+        list.add("3");
+        list.add("5");
+        list.add("8");
+        list.add("*");
+        list.add("7");
+        list.add("+");
+        list.add("*");
+        int result = calc.calculate(list);
+        assertThat(result, equalTo(141));
+    }
 }
