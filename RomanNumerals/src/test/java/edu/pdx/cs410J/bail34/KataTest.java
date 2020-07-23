@@ -12,16 +12,16 @@ import static org.hamcrest.Matchers.equalTo;
 public class KataTest
 {
 
-//  @Test
-//  public void romanNumeralFor1IsI() {
-//    assertThat(Kata.romanNumeralFor(1), equalTo("I"));
-//  }
-//
-//  @Test
-//  public void romanNumeralFor5isV()
-//  {
-//    assertThat(Kata.romanNumeralFor(5), equalTo("V"));
-//  }
+  @Test
+  public void romanNumeralFor1IsI() {
+    assertThat(Kata.romanNumeralFor(1), equalTo("I"));
+  }
+
+  @Test
+  public void romanNumeralFor5isV()
+  {
+    assertThat(Kata.romanNumeralFor(5), equalTo("V"));
+  }
 
   @Test
   public void digitsReturns5() {
@@ -116,6 +116,12 @@ public class KataTest
 
   @Test
   public void romanNumberal90()
+  {
+    assertThat(Kata.romanNumeralFor(90), equalTo("XC"));
+  }
+
+  @Test
+  public void romanNumberal1()
   {
     assertThat(Kata.romanNumeralFor(90), equalTo("XC"));
   }

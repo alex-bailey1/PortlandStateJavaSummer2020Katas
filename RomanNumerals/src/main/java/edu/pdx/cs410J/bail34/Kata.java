@@ -98,7 +98,25 @@ public class Kata {
             numeral.append("XC");
           }
         }
+
+
+      if(i == 0) {
+        if (current <= 3) {
+          for (int j = 0; j < current; j++) {
+            numeral.append("I");
+          }
+        } else if (current == 4) {
+          numeral.append("IV");
+        } else if (current >= 5 && current <= 8) {
+          numeral.append("V");
+          for (int j = 5; j < current; j++) {
+            numeral.append("I");
+          }
+        } else if (current == 9) {
+          numeral.append("IX");
+        }
       }
+  }
 
 
 
